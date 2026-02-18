@@ -115,8 +115,8 @@ export default function LandingPage() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-3xl"></div>
             <img 
-              src="https://images.pexels.com/photos/28428584/pexels-photo-28428584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt="Mathematics Learning"
+              src="/images/banner.png"
+              alt="DECODE MATHS Learning"
               className="relative rounded-2xl shadow-2xl w-full"
               data-testid="hero-image"
             />
