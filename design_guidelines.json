@@ -1,0 +1,172 @@
+{
+  "brand": {
+    "name": "DECODE MATHS",
+    "tone": "Swiss Utility meets Academic Focus",
+    "description": "A distraction-free, high-precision mathematics platform. Design prioritizes clarity, data density, and focused study sessions. Aesthetic is 'Graph Paper Modernism'—clean lines, high contrast, and functional color.",
+    "archetype": "Swiss & High-Contrast (Archetype 4)",
+    "keywords": ["Precision", "Clarity", "Focus", "Structure", "Modern"]
+  },
+  "typography": {
+    "primary_font": {
+      "name": "Outfit",
+      "type": "Geometric Sans",
+      "usage": "Headings, Numbers, Data Display",
+      "import_url": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+    },
+    "secondary_font": {
+      "name": "Public Sans",
+      "type": "Humanist Sans",
+      "usage": "Body Text, Long Explanations, Interface UI",
+      "import_url": "https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&display=swap"
+    },
+    "math_font": {
+      "name": "KaTeX",
+      "usage": "Mathematical Formulas",
+      "note": "Ensure KaTeX CSS is imported for formula rendering."
+    },
+    "scaling": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight",
+      "h2": "text-3xl md:text-4xl font-semibold tracking-tight",
+      "h3": "text-2xl font-semibold",
+      "body": "text-base leading-relaxed text-slate-600",
+      "small": "text-sm text-slate-500 font-medium"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#3B82F6",
+        "foreground": "#FFFFFF",
+        "description": "Mathematical Blue - Electric and Focused. Use for primary actions, active states, and key highlights."
+      },
+      "secondary": {
+        "DEFAULT": "#F1F5F9",
+        "foreground": "#0F172A",
+        "description": "Slate 100 - Use for backgrounds of secondary elements, buttons."
+      },
+      "accent": {
+        "DEFAULT": "#EF4444",
+        "foreground": "#FFFFFF",
+        "description": "Correction Red - Use for errors, reporting questions, or urgent notifications."
+      },
+      "background": "#FFFFFF",
+      "foreground": "#0F172A",
+      "card": "#FFFFFF",
+      "card_foreground": "#0F172A",
+      "border": "#E2E8F0",
+      "input": "#E2E8F0",
+      "ring": "#3B82F6",
+      "success": "#10B981",
+      "warning": "#F59E0B"
+    },
+    "gradients": {
+      "hero_overlay": "linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 100%)",
+      "subtle_glow": "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)"
+    }
+  },
+  "layout_strategies": {
+    "dashboard_grid": {
+      "type": "Bento Grid",
+      "classes": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6",
+      "rules": [
+        "Cards must be rectangular and dense.",
+        "Avoid generic equal-height columns if content varies.",
+        "Use col-span-2 for primary charts or question lists.",
+        "Use col-span-1 for summary metrics."
+      ]
+    },
+    "question_list": {
+      "type": "Minimal List",
+      "classes": "flex flex-col space-y-4",
+      "item_style": "border-b border-border p-4 hover:bg-slate-50 transition-colors bg-white rounded-none md:rounded-lg md:border"
+    },
+    "spacing": {
+      "container_padding": "p-4 md:p-8 lg:p-12",
+      "section_gap": "gap-8 md:gap-12",
+      "internal_padding": "p-6"
+    }
+  },
+  "component_styles": {
+    "buttons": {
+      "default": "rounded-md font-medium transition-transform active:scale-95",
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      "ghost": "hover:bg-accent/10 hover:text-accent-foreground"
+    },
+    "cards": {
+      "default": "bg-card text-card-foreground border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200",
+      "glass": "bg-white/70 backdrop-blur-xl border border-white/20 shadow-sm"
+    },
+    "inputs": {
+      "default": "rounded-md border-input bg-transparent shadow-sm focus-visible:ring-1 focus-visible:ring-ring"
+    },
+    "badges": {
+      "default": "rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+      "outline": "text-foreground border border-input hover:bg-accent hover:text-accent-foreground"
+    }
+  },
+  "visual_assets": {
+    "hero_image": {
+      "url": "https://images.pexels.com/photos/28428584/pexels-photo-28428584.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Abstract Geometric Math Shapes",
+      "usage": "Hero background or side visual. Use with overlay to ensure text readability."
+    },
+    "student_focused": {
+      "url": "https://images.unsplash.com/photo-1769650796106-30c95100c9ee?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwyfHxzdHVkZW50JTIwc3R1ZHlpbmclMjBjb25jZW50cmF0ZWQlMjBtb2Rlcm4lMjBsaWJyYXJ5fGVufDB8fHx8MTc3MTQyMDk0M3ww&ixlib=rb-4.1.0&q=85",
+      "alt": "Student studying in library",
+      "usage": "Sign up page or Features section."
+    },
+    "group_study": {
+      "url": "https://images.unsplash.com/photo-1767102060241-130cb9260718?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHxzdHVkZW50JTIwc3R1ZHlpbmclMjBjb25jZW50cmF0ZWQlMjBtb2Rlcm4lMjBsaWJyYXJ5fGVufDB8fHx8MTc3MTQyMDk0M3ww&ixlib=rb-4.1.0&q=85",
+      "alt": "Students studying together",
+      "usage": "Community or Testimonials section."
+    },
+    "abstract_shapes": {
+      "url": "https://images.unsplash.com/photo-1688012578253-6250872eeb2d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMG1hdGglMjBzaGFwZXMlMjBtaW5pbWFsJTIwM2R8ZW58MHx8fHwxNzcxNDIwOTQyfDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Red and blue geometric cubes",
+      "usage": "Decorative elements, 404 pages."
+    }
+  },
+  "motion": {
+    "micro_interactions": {
+      "hover_lift": "hover:-translate-y-1 transition-transform duration-200",
+      "button_press": "active:scale-95 transition-transform duration-100",
+      "focus_ring": "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+    },
+    "page_transition": {
+      "type": "Fade In",
+      "initial": { "opacity": 0, "y": 10 },
+      "animate": { "opacity": 1, "y": 0 },
+      "transition": { "duration": 0.3 }
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. UPDATE TAILWIND CONFIG: Extend the theme with the colors and fonts defined above. Set 'fontFamily' for sans to ['Public Sans', ...defaultTheme.fontFamily.sans] and heading to ['Outfit', ...].",
+    "2. UPDATE CSS VARIABLES: In 'src/index.css', override the root variables to match the Hex codes provided in the 'colors' section. The current HSL values are generic shadcn defaults.",
+    "3. MATH RENDERING: When implementing the question view, ensure you use a library like 'react-katex' or 'mathjax' for rendering standard LaTeX math formulas.",
+    "4. COMPONENT OVERRIDES: Customize shadcn components. Remove the default border-radius if it's too large (stick to 0.5rem / 8px).",
+    "5. DATA-TESTID: Ensure all interactive elements (buttons, inputs, question options) have a 'data-testid' attribute.",
+    "6. FILE EXTENSIONS: This project uses .js/.jsx. Do not create .tsx files.",
+    "7. UNIVERSAL RULES: Follow the 'UNIVERSAL GUIDELINES FOR MAIN AGENT' strictly."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: 'transition: all'. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms.",
+    "You MUST NOT center align the app container, ie do not add '.App { text-align: center; }' in the css file. This disrupts the human natural reading flow of text.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Components MUST use named exports (export const ComponentName = ...).",
+    "Pages MUST use default exports (export default function PageName() {...}).",
+    "Use 'sonner' for toasts.",
+    "All interactive and key informational elements MUST include a 'data-testid' attribute."
+  ]
+}
