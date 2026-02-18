@@ -43,8 +43,10 @@ export default function AdminLoginPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <Shield className="h-8 w-8 text-primary" />
           </div>
-          <h1 className="text-3xl font-heading font-bold text-primary mb-2">Admin Portal</h1>
-          <p className="text-muted-foreground">DECODE MATHS Administration</p>
+          <div className="flex justify-center mb-2">
+            <Logo linkTo="/" />
+          </div>
+          <p className="text-muted-foreground">Administration Portal</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-4">
