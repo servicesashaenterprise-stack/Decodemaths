@@ -134,7 +134,7 @@ export default function AdminDashboard() {
   };
 
   const handleDelete = async (questionId) => {
-    if (!confirm('Are you sure you want to delete this question?')) return;
+    if (!window.confirm('Are you sure you want to delete this question?')) return;
     
     try {
       await axios.delete(`${API}/admin/questions/${questionId}`, { withCredentials: true });
@@ -189,54 +189,54 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className=\"border-b border-border bg-white sticky top-0 z-40 shadow-sm\">
-        <div className=\"container mx-auto px-4 md:px-8 py-4 flex justify-between items-center\">
-          <h1 className=\"text-2xl font-heading font-bold text-primary\">DECODE MATHS - Admin</h1>
-          <div className=\"flex items-center gap-4\">
-            <span className=\"text-sm text-muted-foreground hidden md:block\">
+      <nav className="border-b border-border bg-white sticky top-0 z-40 shadow-sm">
+        <div className="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-heading font-bold text-primary">DECODE MATHS - Admin</h1>
+          <div className="flex items-center gap-4">
+            <span className="text-sm text-muted-foreground hidden md:block">
               {user?.name} (Admin)
             </span>
-            <Button variant=\"outline\" onClick={handleLogout} data-testid=\"admin-logout-btn\">
-              <LogOut className=\"h-4 w-4 mr-2\" /> Logout
+            <Button variant="outline" onClick={handleLogout} data-testid="admin-logout-btn">
+              <LogOut className="h-4 w-4 mr-2" /> Logout
             </Button>
           </div>
         </div>
       </nav>
 
-      <div className=\"container mx-auto px-4 md:px-8 py-8\">
-        <div className=\"bento-grid mb-8\">
-          <Card className=\"stat-card p-6\" data-testid=\"admin-stat-total\">
-            <p className=\"text-sm text-muted-foreground mb-1\">Total Questions</p>
-            <p className=\"text-3xl font-heading font-bold text-primary\">{stats?.total || 0}</p>
+      <div className="container mx-auto px-4 md:px-8 py-8">
+        <div className="bento-grid mb-8">
+          <Card className="stat-card p-6" data-testid="admin-stat-total">
+            <p className="text-sm text-muted-foreground mb-1">Total Questions</p>
+            <p className="text-3xl font-heading font-bold text-primary">{stats?.total || 0}</p>
           </Card>
-          <Card className=\"stat-card p-6\" data-testid=\"admin-stat-reports\">
-            <p className=\"text-sm text-muted-foreground mb-1\">Pending Reports</p>
-            <p className=\"text-3xl font-heading font-bold text-warning\">
+          <Card className="stat-card p-6" data-testid="admin-stat-reports">
+            <p className="text-sm text-muted-foreground mb-1">Pending Reports</p>
+            <p className="text-3xl font-heading font-bold text-warning">
               {reports.filter(r => r.status === 'pending').length}
             </p>
           </Card>
-          <Card className=\"stat-card p-6\" data-testid=\"admin-stat-classes\">
-            <p className=\"text-sm text-muted-foreground mb-1\">Classes</p>
-            <p className=\"text-3xl font-heading font-bold\">{Object.keys(stats?.by_class || {}).length}</p>
+          <Card className="stat-card p-6" data-testid="admin-stat-classes">
+            <p className="text-sm text-muted-foreground mb-1">Classes</p>
+            <p className="text-3xl font-heading font-bold">{Object.keys(stats?.by_class || {}).length}</p>
           </Card>
-          <Card className=\"stat-card p-6\" data-testid=\"admin-stat-types\">
-            <p className=\"text-sm text-muted-foreground mb-1\">Question Types</p>
-            <p className=\"text-3xl font-heading font-bold\">{Object.keys(stats?.by_type || {}).length}</p>
+          <Card className="stat-card p-6" data-testid="admin-stat-types">
+            <p className="text-sm text-muted-foreground mb-1">Question Types</p>
+            <p className="text-3xl font-heading font-bold">{Object.keys(stats?.by_type || {}).length}</p>
           </Card>
         </div>
 
-        <div className=\"flex gap-4 mb-6\">
+        <div className="flex gap-4 mb-6">
           <Button
             variant={activeTab === 'questions' ? 'default' : 'outline'}
             onClick={() => setActiveTab('questions')}
-            data-testid=\"tab-questions-btn\"
+            data-testid="tab-questions-btn"
           >
             Questions ({questions.length})
           </Button>
           <Button
             variant={activeTab === 'reports' ? 'default' : 'outline'}
             onClick={() => setActiveTab('reports')}
-            data-testid=\"tab-reports-btn\"
+            data-testid="tab-reports-btn"
           >
             Reports ({reports.length})
           </Button>
@@ -244,30 +244,30 @@ export default function AdminDashboard() {
 
         {activeTab === 'questions' && (
           <div>
-            <div className=\"flex justify-between items-center mb-6\">
-              <h2 className=\"text-2xl font-heading font-semibold\">Manage Questions</h2>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-heading font-semibold">Manage Questions</h2>
               <Dialog open={showAddDialog} onOpenChange={(open) => {
                 setShowAddDialog(open);
                 if (!open) resetForm();
               }}>
                 <DialogTrigger asChild>
-                  <Button data-testid=\"add-question-btn\">
-                    <Plus className=\"mr-2 h-4 w-4\" /> Add Question
+                  <Button data-testid="add-question-btn">
+                    <Plus className="mr-2 h-4 w-4" /> Add Question
                   </Button>
                 </DialogTrigger>
-                <DialogContent className=\"max-w-3xl max-h-[90vh] overflow-y-auto\">
+                <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                   <DialogHeader>
                     <DialogTitle>
                       {editingQuestion ? 'Edit Question' : 'Add New Question'}
                     </DialogTitle>
                   </DialogHeader>
-                  <form onSubmit={handleSubmit} className=\"space-y-4\">
-                    <div className=\"grid grid-cols-2 gap-4\">
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
                       <div>
                         <Label>Class</Label>
                         <Select value={formData.class_level} onValueChange={(val) => setFormData({...formData, class_level: val})}>
                           <SelectTrigger>
-                            <SelectValue placeholder=\"Select class\" />
+                            <SelectValue placeholder="Select class" />
                           </SelectTrigger>
                           <SelectContent>
                             {CLASSES.map(cls => <SelectItem key={cls} value={cls}>{cls}</SelectItem>)}
@@ -287,14 +287,14 @@ export default function AdminDashboard() {
                       </div>
                     </div>
 
-                    <div className=\"grid grid-cols-3 gap-4\">
+                    <div className="grid grid-cols-3 gap-4">
                       <div>
                         <Label>Chapter</Label>
                         <Input value={formData.chapter} onChange={(e) => setFormData({...formData, chapter: e.target.value})} required />
                       </div>
                       <div>
                         <Label>Chapter Number</Label>
-                        <Input type=\"number\" value={formData.chapter_number} onChange={(e) => setFormData({...formData, chapter_number: e.target.value})} required />
+                        <Input type="number" value={formData.chapter_number} onChange={(e) => setFormData({...formData, chapter_number: e.target.value})} required />
                       </div>
                       <div>
                         <Label>Marks</Label>
@@ -327,7 +327,7 @@ export default function AdminDashboard() {
                               newOpts[idx] = e.target.value;
                               setFormData({...formData, options: newOpts});
                             }}
-                            className=\"mt-2\"
+                            className="mt-2"
                           />
                         ))}
                       </div>
@@ -345,10 +345,10 @@ export default function AdminDashboard() {
 
                     <div>
                       <Label>YouTube Link (Optional)</Label>
-                      <Input value={formData.youtube_link} onChange={(e) => setFormData({...formData, youtube_link: e.target.value})} placeholder=\"https://youtube.com/...\" />
+                      <Input value={formData.youtube_link} onChange={(e) => setFormData({...formData, youtube_link: e.target.value})} placeholder="https://youtube.com/..." />
                     </div>
 
-                    <Button type=\"submit\" className=\"w-full\" data-testid=\"save-question-btn\">
+                    <Button type="submit" className="w-full" data-testid="save-question-btn">
                       {editingQuestion ? 'Update Question' : 'Create Question'}
                     </Button>
                   </form>
@@ -356,25 +356,25 @@ export default function AdminDashboard() {
               </Dialog>
             </div>
 
-            <div className=\"space-y-4\">
+            <div className="space-y-4">
               {questions.map((q, index) => (
-                <Card key={q.question_id} className=\"p-6\" data-testid={`admin-question-${index}`}>
-                  <div className=\"flex justify-between items-start gap-4\">
-                    <div className=\"flex-1\">
-                      <div className=\"flex flex-wrap gap-2 mb-3\">
-                        <Badge variant=\"outline\">{q.class_level}</Badge>
-                        <Badge variant=\"outline\">{q.chapter}</Badge>
+                <Card key={q.question_id} className="p-6" data-testid={`admin-question-${index}`}>
+                  <div className="flex justify-between items-start gap-4">
+                    <div className="flex-1">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <Badge variant="outline">{q.class_level}</Badge>
+                        <Badge variant="outline">{q.chapter}</Badge>
                         <Badge>{q.question_type}</Badge>
-                        <Badge className=\"bg-success/10 text-success\">{q.marks}M</Badge>
+                        <Badge className="bg-success/10 text-success">{q.marks}M</Badge>
                       </div>
-                      <p className=\"text-foreground line-clamp-2\">{q.question_text}</p>
+                      <p className="text-foreground line-clamp-2">{q.question_text}</p>
                     </div>
-                    <div className=\"flex gap-2 shrink-0\">
-                      <Button variant=\"outline\" size=\"sm\" onClick={() => startEdit(q)} data-testid={`edit-question-${index}`}>
-                        <Pencil className=\"h-4 w-4\" />
+                    <div className="flex gap-2 shrink-0">
+                      <Button variant="outline" size="sm" onClick={() => startEdit(q)} data-testid={`edit-question-${index}`}>
+                        <Pencil className="h-4 w-4" />
                       </Button>
-                      <Button variant=\"outline\" size=\"sm\" onClick={() => handleDelete(q.question_id)} data-testid={`delete-question-${index}`}>
-                        <Trash2 className=\"h-4 w-4 text-destructive\" />
+                      <Button variant="outline" size="sm" onClick={() => handleDelete(q.question_id)} data-testid={`delete-question-${index}`}>
+                        <Trash2 className="h-4 w-4 text-destructive" />
                       </Button>
                     </div>
                   </div>
@@ -386,28 +386,28 @@ export default function AdminDashboard() {
 
         {activeTab === 'reports' && (
           <div>
-            <h2 className=\"text-2xl font-heading font-semibold mb-6\">Question Reports</h2>
+            <h2 className="text-2xl font-heading font-semibold mb-6">Question Reports</h2>
             {reports.length === 0 ? (
-              <Card className=\"p-12 text-center\">
-                <p className=\"text-muted-foreground\">No reports yet</p>
+              <Card className="p-12 text-center">
+                <p className="text-muted-foreground">No reports yet</p>
               </Card>
             ) : (
-              <div className=\"space-y-4\">
+              <div className="space-y-4">
                 {reports.map((report, index) => (
-                  <Card key={report.report_id} className=\"p-6\" data-testid={`report-${index}`}>
-                    <div className=\"flex items-start gap-4\">
-                      <AlertTriangle className=\"h-6 w-6 text-warning shrink-0 mt-1\" />
-                      <div className=\"flex-1\">
-                        <div className=\"flex items-center gap-2 mb-2\">
+                  <Card key={report.report_id} className="p-6" data-testid={`report-${index}`}>
+                    <div className="flex items-start gap-4">
+                      <AlertTriangle className="h-6 w-6 text-warning shrink-0 mt-1" />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
                           <Badge variant={report.status === 'pending' ? 'default' : 'secondary'}>
                             {report.status}
                           </Badge>
-                          <span className=\"text-sm text-muted-foreground\">
+                          <span className="text-sm text-muted-foreground">
                             Question ID: {report.question_id}
                           </span>
                         </div>
-                        <p className=\"text-foreground mb-2\">{report.issue_description}</p>
-                        <p className=\"text-xs text-muted-foreground\">
+                        <p className="text-foreground mb-2">{report.issue_description}</p>
+                        <p className="text-xs text-muted-foreground">
                           Reported by: {report.user_id}
                         </p>
                       </div>
