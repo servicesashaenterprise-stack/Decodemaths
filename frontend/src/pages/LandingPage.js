@@ -114,13 +114,12 @@ export default function LandingPage() {
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent rounded-2xl"></div>
-            <div className="relative rounded-2xl shadow-2xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8f] p-12 flex items-center justify-center min-h-[400px]">
-              <img 
-                src="/images/logo.png"
-                alt="DECODE MATHS"
-                className="h-64 w-64 object-contain"
-                data-testid="hero-image"
-              />
+            <div className="relative rounded-2xl shadow-2xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8f] p-16 flex flex-col items-center justify-center min-h-[400px] space-y-6">
+              <div className="h-32 w-32 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center border-4 border-white/20">
+                <span className="text-white font-heading font-bold text-6xl">D</span>
+              </div>
+              <h3 className="text-white text-3xl font-heading font-bold">DECODE MATHS</h3>
+              <p className="text-white/80 text-lg">Master Mathematics, One Question at a Time</p>
             </div>
           </div>
         </div>
