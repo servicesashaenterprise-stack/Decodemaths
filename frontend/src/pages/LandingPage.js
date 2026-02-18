@@ -59,74 +59,102 @@ export default function LandingPage() {
       </nav>
 
       <section className="container mx-auto px-4 md:px-8 py-12 md:py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <Badge className="bg-primary/10 text-primary border-primary/20" data-testid="hero-badge">
-              Mathematics Excellence
-            </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight">
-              Master Mathematics
-              <br />
-              <span className="text-primary">One Question at a Time</span>
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Comprehensive question bank for Class 10, 11, 12, CA Foundation & JEE. 
-              Practice chapter-wise, track progress, and ace your exams.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button 
-                size="lg" 
-                onClick={() => navigate('/register')}
-                className="active:scale-95 transition-transform"
-                data-testid="hero-cta-btn"
-              >
-                Start Practicing <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                onClick={() => navigate('/questions')}
-                data-testid="explore-questions-btn"
-              >
-                Explore Questions
-              </Button>
-            </div>
-            {stats && (
-              <div className="flex gap-6 pt-4">
-                <div>
-                  <p className="text-3xl font-heading font-bold text-primary">{stats.total}+</p>
-                  <p className="text-sm text-muted-foreground">Questions</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-heading font-bold text-primary">
-                    {Object.keys(stats.by_class || {}).length}
-                  </p>
-                  <p className="text-sm text-muted-foreground">Classes</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-heading font-bold text-primary">
-                    {Object.keys(stats.by_type || {}).length}
-                  </p>
-                  <p className="text-sm text-muted-foreground">Question Types</p>
-                </div>
-              </div>
-            )}
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <Badge className="bg-primary/10 text-primary border-primary/20" data-testid="hero-badge">
+            Mathematics Excellence
+          </Badge>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold tracking-tight leading-tight">
+            Master Mathematics
+            <br />
+            <span className="text-primary">One Question at a Time</span>
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Comprehensive question bank for Class 10, 11, 12, CA Foundation & JEE. 
+            Practice chapter-wise, track progress, and ace your exams.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button 
+              size="lg" 
+              onClick={() => navigate('/register')}
+              className="active:scale-95 transition-transform"
+              data-testid="hero-cta-btn"
+            >
+              Start Practicing <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => navigate('/questions')}
+              data-testid="explore-questions-btn"
+            >
+              Explore Questions
+            </Button>
           </div>
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-3xl"></div>
-            <div className="relative rounded-2xl shadow-2xl bg-gradient-to-br from-white to-gray-50 p-16 flex flex-col items-center justify-center min-h-[400px] space-y-8 border-2 border-primary/10">
-              <div className="transform hover:scale-105 transition-transform duration-300">
-                <Logo size="xl" className="drop-shadow-2xl" />
+          {stats && (
+            <div className="flex justify-center gap-8 pt-6">
+              <div>
+                <p className="text-3xl font-heading font-bold text-primary">{stats.total}+</p>
+                <p className="text-sm text-muted-foreground">Questions</p>
               </div>
-              <div className="text-center space-y-3">
-                <p className="text-gray-700 text-xl font-medium">Master Mathematics, One Question at a Time</p>
-                <div className="flex gap-4 justify-center pt-4">
-                  <Badge className="bg-primary/10 text-primary border-primary/30">Class 10-12</Badge>
-                  <Badge className="bg-primary/10 text-primary border-primary/30">CA Foundation</Badge>
-                  <Badge className="bg-primary/10 text-primary border-primary/30">JEE</Badge>
-                </div>
+              <div>
+                <p className="text-3xl font-heading font-bold text-primary">
+                  {Object.keys(stats.by_class || {}).length}
+                </p>
+                <p className="text-sm text-muted-foreground">Classes</p>
+              </div>
+              <div>
+                <p className="text-3xl font-heading font-bold text-primary">
+                  {Object.keys(stats.by_type || {}).length}
+                </p>
+                <p className="text-sm text-muted-foreground">Question Types</p>
               </div>
             </div>
+          )}
+        </div>
+      </section>
+
+      <section className="bg-secondary/30 py-16">
+        <div className="container mx-auto px-4 md:px-8">
+          <h3 className="text-3xl font-heading font-semibold text-center mb-12">
+            Why Choose DECODE MATHS?
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow bg-white">
+              <div className="h-12 w-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 className="font-heading font-semibold text-xl mb-2">YouTube Solutions</h4>
+              <p className="text-muted-foreground">
+                Access detailed video explanations and step-by-step solutions for complex problems
+              </p>
+            </Card>
+
+            <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow bg-white">
+              <Filter className="h-12 w-12 text-primary mb-4 p-2 bg-primary/10 rounded-lg" />
+              <h4 className="font-heading font-semibold text-xl mb-2">Smart Question Filter</h4>
+              <p className="text-muted-foreground">
+                Filter by class, chapter, marks, and question type for targeted practice
+              </p>
+            </Card>
+
+            <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow bg-white">
+              <TrendingUp className="h-12 w-12 text-success mb-4 p-2 bg-success/10 rounded-lg" />
+              <h4 className="font-heading font-semibold text-xl mb-2">Basic to Advanced</h4>
+              <p className="text-muted-foreground">
+                Questions ranging from foundational concepts to advanced problem-solving
+              </p>
+            </Card>
+
+            <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow bg-white">
+              <BookOpen className="h-12 w-12 text-warning mb-4 p-2 bg-warning/10 rounded-lg" />
+              <h4 className="font-heading font-semibold text-xl mb-2">All Question Types</h4>
+              <p className="text-muted-foreground">
+                MCQ, Assertion-Reason, Short Answer, Long Answer, and Case Study questions
+              </p>
+            </Card>
           </div>
         </div>
       </section>
