@@ -88,41 +88,41 @@ export default function QuestionBankPage() {
   const hasFilters = selectedClass || selectedChapter || selectedType || selectedMarks;
 
   return (
-    <div className="min-h-screen bg-background\">
-      <nav className="border-b border-border bg-white sticky top-0 z-40 shadow-sm\">
-        <div className="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center\">
-          <Link to=\"/\">
-            <h1 className="text-2xl font-heading font-bold text-primary\">DECODE MATHS</h1>
+    <div className="min-h-screen bg-background">
+      <nav className="border-b border-border bg-white sticky top-0 z-40 shadow-sm">
+        <div className="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+          <Link to="/">
+            <h1 className="text-2xl font-heading font-bold text-primary">DECODE MATHS</h1>
           </Link>
-          <div className="flex gap-2\">
-            <Button variant=\"outline\" onClick={() => navigate('/login')} data-testid=\"nav-login-btn\">
+          <div className="flex gap-2">
+            <Button variant="outline" onClick={() => navigate('/login')} data-testid="nav-login-btn">
               Login
             </Button>
-            <Button onClick={() => navigate('/register')} data-testid=\"nav-register-btn\">
+            <Button onClick={() => navigate('/register')} data-testid="nav-register-btn">
               Get Started
             </Button>
           </div>
         </div>
       </nav>
 
-      <div className="container mx-auto px-4 md:px-8 py-8\">
-        <div className="mb-8\">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-2\">Question Bank</h2>
-          <p className="text-muted-foreground\">Browse and filter mathematics questions</p>
+      <div className="container mx-auto px-4 md:px-8 py-8">
+        <div className="mb-8">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-2">Question Bank</h2>
+          <p className="text-muted-foreground">Browse and filter mathematics questions</p>
         </div>
 
-        <Card className="p-6 mb-8 shadow-sm\">
-          <div className="flex items-center gap-2 mb-4\">
-            <Filter className="h-5 w-5 text-primary\" />
-            <h3 className="font-heading font-semibold text-lg\">Filters</h3>
+        <Card className="p-6 mb-8 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <Filter className="h-5 w-5 text-primary" />
+            <h3 className="font-heading font-semibold text-lg">Filters</h3>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4\">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>
-              <label className="text-sm font-medium mb-2 block\">Class</label>
+              <label className="text-sm font-medium mb-2 block">Class</label>
               <Select value={selectedClass} onValueChange={setSelectedClass}>
-                <SelectTrigger data-testid=\"filter-class-select\">
-                  <SelectValue placeholder=\"Select class\" />
+                <SelectTrigger data-testid="filter-class-select">
+                  <SelectValue placeholder="Select class" />
                 </SelectTrigger>
                 <SelectContent>
                   {CLASSES.map((cls) => (
@@ -133,10 +133,10 @@ export default function QuestionBankPage() {
             </div>
 
             <div>
-              <label className="text-sm font-medium mb-2 block\">Chapter</label>
+              <label className="text-sm font-medium mb-2 block">Chapter</label>
               <Select value={selectedChapter} onValueChange={setSelectedChapter} disabled={!selectedClass}>
-                <SelectTrigger data-testid=\"filter-chapter-select\">
-                  <SelectValue placeholder=\"Select chapter\" />
+                <SelectTrigger data-testid="filter-chapter-select">
+                  <SelectValue placeholder="Select chapter" />
                 </SelectTrigger>
                 <SelectContent>
                   {chapters.map((ch) => (
@@ -147,10 +147,10 @@ export default function QuestionBankPage() {
             </div>
 
             <div>
-              <label className="text-sm font-medium mb-2 block\">Question Type</label>
+              <label className="text-sm font-medium mb-2 block">Question Type</label>
               <Select value={selectedType} onValueChange={setSelectedType}>
-                <SelectTrigger data-testid=\"filter-type-select\">
-                  <SelectValue placeholder=\"Select type\" />
+                <SelectTrigger data-testid="filter-type-select">
+                  <SelectValue placeholder="Select type" />
                 </SelectTrigger>
                 <SelectContent>
                   {QUESTION_TYPES.map((type) => (
@@ -161,10 +161,10 @@ export default function QuestionBankPage() {
             </div>
 
             <div>
-              <label className="text-sm font-medium mb-2 block\">Marks</label>
+              <label className="text-sm font-medium mb-2 block">Marks</label>
               <Select value={selectedMarks} onValueChange={setSelectedMarks}>
-                <SelectTrigger data-testid=\"filter-marks-select\">
-                  <SelectValue placeholder=\"Select marks\" />
+                <SelectTrigger data-testid="filter-marks-select">
+                  <SelectValue placeholder="Select marks" />
                 </SelectTrigger>
                 <SelectContent>
                   {MARKS.map((mark) => (
@@ -176,51 +176,51 @@ export default function QuestionBankPage() {
           </div>
 
           {hasFilters && (
-            <div className="mt-4 flex gap-2\">
-              <Button variant=\"outline\" size=\"sm\" onClick={clearFilters} data-testid=\"clear-filters-btn\">
-                <X className="h-4 w-4 mr-1\" /> Clear Filters
+            <div className="mt-4 flex gap-2">
+              <Button variant="outline" size="sm" onClick={clearFilters} data-testid="clear-filters-btn">
+                <X className="h-4 w-4 mr-1" /> Clear Filters
               </Button>
             </div>
           )}
         </Card>
 
-        <div className="mb-4 flex justify-between items-center\">
-          <p className="text-muted-foreground\">
+        <div className="mb-4 flex justify-between items-center">
+          <p className="text-muted-foreground">
             {loading ? 'Loading...' : `${questions.length} questions found`}
           </p>
         </div>
 
         {loading ? (
-          <div className="flex justify-center py-12\">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary\"></div>
+          <div className="flex justify-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
           </div>
         ) : questions.length === 0 ? (
-          <Card className="p-12 text-center\">
-            <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground\" />
-            <h3 className="text-xl font-heading font-semibold mb-2\">No questions found</h3>
-            <p className="text-muted-foreground mb-4\">Try adjusting your filters</p>
+          <Card className="p-12 text-center">
+            <BookOpen className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+            <h3 className="text-xl font-heading font-semibold mb-2">No questions found</h3>
+            <p className="text-muted-foreground mb-4">Try adjusting your filters</p>
             {hasFilters && (
-              <Button variant=\"outline\" onClick={clearFilters}>
+              <Button variant="outline" onClick={clearFilters}>
                 Clear Filters
               </Button>
             )}
           </Card>
         ) : (
-          <div className="space-y-4\">
+          <div className="space-y-4">
             {questions.map((question, index) => (
               <Card 
                 key={question.question_id} 
-                className="p-6 question-card cursor-pointer hover:border-primary transition-colors\"
+                className="p-6 question-card cursor-pointer hover:border-primary transition-colors"
                 onClick={() => navigate(`/questions/${question.question_id}`)}
                 data-testid={`question-card-${index}`}
               >
-                <div className="flex flex-wrap gap-2 mb-3\">
-                  <Badge variant=\"outline\" className="text-xs\">{question.class_level}</Badge>
-                  <Badge variant=\"outline\" className="text-xs\">{question.chapter}</Badge>
-                  <Badge className="text-xs bg-primary/10 text-primary\">{question.question_type}</Badge>
-                  <Badge className="text-xs bg-success/10 text-success\">{question.marks} Marks</Badge>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">{question.class_level}</Badge>
+                  <Badge variant="outline" className="text-xs">{question.chapter}</Badge>
+                  <Badge className="text-xs bg-primary/10 text-primary">{question.question_type}</Badge>
+                  <Badge className="text-xs bg-success/10 text-success">{question.marks} Marks</Badge>
                 </div>
-                <p className="text-foreground leading-relaxed line-clamp-3\">
+                <p className="text-foreground leading-relaxed line-clamp-3">
                   {question.question_text}
                 </p>
               </Card>
