@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Mail, Lock, Chrome } from 'lucide-react';
+import Logo from '@/components/Logo';
 import axios from 'axios';
 import { toast } from 'sonner';
 
