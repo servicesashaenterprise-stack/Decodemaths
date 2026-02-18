@@ -46,9 +46,9 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background flex items-center justify-center p-4">
       <Card className="w-full max-w-md p-8 shadow-xl">
         <div className="text-center mb-8">
-          <Link to="/">
-            <h1 className="text-3xl font-heading font-bold text-primary mb-2">DECODE MATHS</h1>
-          </Link>
+          <div className="flex justify-center mb-4">
+            <Logo linkTo="/" />
+          </div>
           <p className="text-muted-foreground">Welcome back! Sign in to continue</p>
         </div>
 
