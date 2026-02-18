@@ -250,7 +250,54 @@ export default function LandingPage() {
 
       <footer className="border-t border-border bg-secondary/30 py-8">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <Logo size="sm" className="mb-4" />
+              <p className="text-sm text-muted-foreground">
+                Master Mathematics, One Question at a Time
+              </p>
+            </div>
+            <div>
+              <h4 className="font-heading font-semibold mb-4">Quick Links</h4>
+              <div className="space-y-2">
+                <Link to="/questions" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Browse Questions
+                </Link>
+                <Link to="/about" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                  About Us
+                </Link>
+                <Link to="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-heading font-semibold mb-4">For Students</h4>
+              <div className="space-y-2">
+                <Link to="/login" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Student Login
+                </Link>
+                <Link to="/register" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Register
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-heading font-semibold mb-4">Connect With Us</h4>
+              <a 
+                href="https://www.youtube.com/@decodemathsnow" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-red-600 transition-colors"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube Channel
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground">
               © 2026 DECODE MATHS. All rights reserved.
             </p>
