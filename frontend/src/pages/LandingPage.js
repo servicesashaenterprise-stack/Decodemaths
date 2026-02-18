@@ -196,16 +196,9 @@ export default function LandingPage() {
       <section className="bg-secondary/50 py-16">
         <div className="container mx-auto px-4 md:px-8">
           <h3 className="text-3xl font-heading font-semibold text-center mb-12">
-            Why Choose DECODE MATHS?
+            Features That Make Learning Easy
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow">
-              <Filter className="h-12 w-12 text-primary mb-4" />
-              <h4 className="font-heading font-semibold text-xl mb-2">Smart Filtering</h4>
-              <p className="text-muted-foreground">
-                Filter by class, chapter, marks, and question type for targeted practice
-              </p>
-            </Card>
             <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow">
               <Target className="h-12 w-12 text-primary mb-4" />
               <h4 className="font-heading font-semibold text-xl mb-2">Practice Tests</h4>
@@ -222,9 +215,16 @@ export default function LandingPage() {
             </Card>
             <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow">
               <Award className="h-12 w-12 text-primary mb-4" />
-              <h4 className="font-heading font-semibold text-xl mb-2">Video Solutions</h4>
+              <h4 className="font-heading font-semibold text-xl mb-2">Bookmark Questions</h4>
               <p className="text-muted-foreground">
-                Access YouTube video explanations for better understanding
+                Save important questions for quick revision before exams
+              </p>
+            </Card>
+            <Card className="p-6 border-none shadow-sm hover:shadow-md transition-shadow">
+              <BookOpen className="h-12 w-12 text-primary mb-4" />
+              <h4 className="font-heading font-semibold text-xl mb-2">Chapter-wise Practice</h4>
+              <p className="text-muted-foreground">
+                Focus on specific chapters and topics you want to master
               </p>
             </Card>
           </div>
