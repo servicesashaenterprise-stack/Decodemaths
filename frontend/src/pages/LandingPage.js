@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { BookOpen, Target, TrendingUp, Award, ArrowRight, Filter } from 'lucide-react';
 import Logo from '@/components/Logo';
+import DecodeMathsLogo from '@/components/DecodeMathsLogo';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
