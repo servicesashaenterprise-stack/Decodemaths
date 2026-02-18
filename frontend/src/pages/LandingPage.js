@@ -113,13 +113,15 @@ export default function LandingPage() {
             )}
           </div>
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-3xl"></div>
-            <img 
-              src="/images/banner.png"
-              alt="DECODE MATHS Learning"
-              className="relative rounded-2xl shadow-2xl w-full"
-              data-testid="hero-image"
-            />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent rounded-2xl"></div>
+            <div className="relative rounded-2xl shadow-2xl bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8f] p-12 flex items-center justify-center min-h-[400px]">
+              <img 
+                src="/images/logo.png"
+                alt="DECODE MATHS"
+                className="h-64 w-64 object-contain"
+                data-testid="hero-image"
+              />
+            </div>
           </div>
         </div>
       </section>
