@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Logo from '@/components/Logo';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -113,7 +114,7 @@ export default function QuestionDetailPage() {
       <nav className="border-b border-border bg-white sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 md:px-8 py-4">
           <Link to="/">
-            <h1 className="text-2xl font-heading font-bold text-primary">DECODE MATHS</h1>
+            <Logo />
           </Link>
         </div>
       </nav>
