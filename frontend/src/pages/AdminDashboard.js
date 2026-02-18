@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { LogOut, Plus, Pencil, Trash2, AlertTriangle } from 'lucide-react';
+import Logo from '@/components/Logo';
 import axios from 'axios';
 import { toast } from 'sonner';
 
