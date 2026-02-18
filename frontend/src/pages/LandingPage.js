@@ -114,17 +114,16 @@ export default function LandingPage() {
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-3xl"></div>
-            <div className="relative rounded-2xl shadow-2xl bg-gradient-to-br from-[#1e3a5f] via-[#2d5a8f] to-[#1e3a5f] p-16 flex flex-col items-center justify-center min-h-[400px] space-y-8">
+            <div className="relative rounded-2xl shadow-2xl bg-gradient-to-br from-white to-gray-50 p-16 flex flex-col items-center justify-center min-h-[400px] space-y-8 border-2 border-primary/10">
               <div className="transform hover:scale-105 transition-transform duration-300">
-                <DecodeMathsLogo size={200} />
+                <Logo size="xl" className="drop-shadow-2xl" />
               </div>
               <div className="text-center space-y-3">
-                <h3 className="text-white text-4xl font-heading font-bold tracking-tight">DECODE MATHS</h3>
-                <p className="text-white/90 text-xl font-medium">Master Mathematics, One Question at a Time</p>
+                <p className="text-gray-700 text-xl font-medium">Master Mathematics, One Question at a Time</p>
                 <div className="flex gap-4 justify-center pt-4">
-                  <Badge className="bg-white/20 text-white border-white/30">Class 10-12</Badge>
-                  <Badge className="bg-white/20 text-white border-white/30">CA Foundation</Badge>
-                  <Badge className="bg-white/20 text-white border-white/30">JEE</Badge>
+                  <Badge className="bg-primary/10 text-primary border-primary/30">Class 10-12</Badge>
+                  <Badge className="bg-primary/10 text-primary border-primary/30">CA Foundation</Badge>
+                  <Badge className="bg-primary/10 text-primary border-primary/30">JEE</Badge>
                 </div>
               </div>
             </div>
