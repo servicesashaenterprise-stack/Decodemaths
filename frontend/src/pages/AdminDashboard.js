@@ -192,7 +192,10 @@ export default function AdminDashboard() {
     <div className="min-h-screen bg-background">
       <nav className="border-b border-border bg-white sticky top-0 z-40 shadow-sm">
         <div className="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-heading font-bold text-primary">DECODE MATHS - Admin</h1>
+          <div className="flex items-center gap-3">
+            <Logo linkTo="/admin/dashboard" />
+            <Badge variant="outline" className="ml-2">Admin</Badge>
+          </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hidden md:block">
               {user?.name} (Admin)
