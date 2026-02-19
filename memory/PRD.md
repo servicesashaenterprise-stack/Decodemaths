@@ -44,6 +44,10 @@
 - [x] Testimonials section on Landing Page
 - [x] Dedicated Reviews page (/reviews)
 - [x] Review statistics (average rating, distribution)
+- [x] Admin review management (view all reviews)
+- [x] Admin reply to reviews functionality
+- [x] Admin delete reviews
+- [x] Admin replies displayed on public pages
 
 ### Deployment
 - [x] Dockerfile created
