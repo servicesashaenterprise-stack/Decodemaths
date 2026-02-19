@@ -139,11 +139,16 @@ class Review(BaseModel):
     user_name: str
     rating: int
     review_text: str
+    admin_reply: Optional[str] = None
+    admin_reply_at: Optional[datetime] = None
     created_at: datetime
 
 class ReviewCreate(BaseModel):
     rating: int
     review_text: str
+
+class ReviewReply(BaseModel):
+    reply_text: str
 
 class PracticeTest(BaseModel):
     model_config = ConfigDict(extra="ignore")
