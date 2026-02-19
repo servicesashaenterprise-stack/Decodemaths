@@ -94,6 +94,52 @@ export default function AdminDashboard() {
     }
   };
 
+  const fetchReviews = async () => {
+    try {
+      const [reviewsRes, statsRes] = await Promise.all([
+        axios.get(`${API}/admin/reviews`, { withCredentials: true }),
+        axios.get(`${API}/reviews/stats`)
+      ]);
+      setReviews(reviewsRes.data);
+      setReviewStats(statsRes.data);
+    } catch (error) {
+      console.error('Failed to load reviews:', error);
+    }
+  };
+
+  const handleReplyToReview = async (reviewId) => {
+    if (!replyText.trim()) {
+      toast.error('Please enter a reply');
+      return;
+    }
+    
+    try {
+      await axios.post(
+        `${API}/admin/reviews/${reviewId}/reply`,
+        { reply_text: replyText },
+        { withCredentials: true }
+      );
+      toast.success('Reply sent successfully');
+      setReplyingToReview(null);
+      setReplyText('');
+      fetchReviews();
+    } catch (error) {
+      toast.error(error.response?.data?.detail || 'Failed to send reply');
+    }
+  };
+
+  const handleDeleteReview = async (reviewId) => {
+    if (!window.confirm('Are you sure you want to delete this review?')) return;
+    
+    try {
+      await axios.delete(`${API}/admin/reviews/${reviewId}`, { withCredentials: true });
+      toast.success('Review deleted');
+      fetchReviews();
+    } catch (error) {
+      toast.error('Failed to delete review');
+    }
+  };
+
   const handleLogout = async () => {
     try {
       await axios.post(`${API}/auth/logout`, {}, { withCredentials: true });
