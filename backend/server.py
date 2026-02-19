@@ -740,6 +740,69 @@ async def get_chapters(class_level: str):
     
     return {"chapters": [{"name": c["_id"], "number": c["chapter_number"]} for c in chapters]}
 
+# ============= REVIEW ROUTES =============
+
+@api_router.post("/reviews")
+async def create_review(review_data: ReviewCreate, session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
+    """Submit a review"""
+    user = await get_current_user(session_token, authorization)
+    
+    # Check if user already reviewed
+    existing = await db.reviews.find_one({"user_id": user.user_id}, {"_id": 0})
+    if existing:
+        raise HTTPException(status_code=400, detail="You have already submitted a review")
+    
+    if review_data.rating < 1 or review_data.rating > 5:
+        raise HTTPException(status_code=400, detail="Rating must be between 1 and 5")
+    
+    review_id = f"rev_{uuid.uuid4().hex[:12]}"
+    review_doc = {
+        "review_id": review_id,
+        "user_id": user.user_id,
+        "user_name": user.name,
+        "rating": review_data.rating,
+        "review_text": review_data.review_text,
+        "created_at": datetime.now(timezone.utc).isoformat()
+    }
+    
+    await db.reviews.insert_one(review_doc)
+    
+    review_doc['created_at'] = datetime.fromisoformat(review_doc['created_at'])
+    return Review(**review_doc)
+
+@api_router.get("/reviews")
+async def get_reviews(limit: int = 10, skip: int = 0):
+    """Get public reviews"""
+    reviews = await db.reviews.find({}, {"_id": 0}).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
+    
+    for r in reviews:
+        if isinstance(r.get('created_at'), str):
+            r['created_at'] = datetime.fromisoformat(r['created_at'])
+    
+    return [Review(**r) for r in reviews]
+
+@api_router.get("/reviews/stats")
+async def get_review_stats():
+    """Get review statistics"""
+    total = await db.reviews.count_documents({})
+    
+    if total == 0:
+        return {"total": 0, "average_rating": 0, "rating_distribution": {}}
+    
+    ratings = await db.reviews.aggregate([
+        {"$group": {"_id": "$rating", "count": {"$sum": 1}}}
+    ]).to_list(10)
+    
+    avg_rating = await db.reviews.aggregate([
+        {"$group": {"_id": None, "avg": {"$avg": "$rating"}}}
+    ]).to_list(1)
+    
+    return {
+        "total": total,
+        "average_rating": round(avg_rating[0]["avg"], 1) if avg_rating else 0,
+        "rating_distribution": {str(item["_id"]): item["count"] for item in ratings}
+    }
+
 # Include the router in the main app
 app.include_router(api_router)
 
