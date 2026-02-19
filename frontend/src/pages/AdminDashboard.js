@@ -53,6 +53,7 @@ export default function AdminDashboard() {
     fetchStats();
     fetchQuestions();
     fetchReports();
+    fetchReviews();
   }, []);
 
   const fetchUserData = async () => {
