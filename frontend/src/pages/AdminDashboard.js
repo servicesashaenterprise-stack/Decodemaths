@@ -487,6 +487,119 @@ export default function AdminDashboard() {
             )}
           </div>
         )}
+
+        {activeTab === 'reviews' && (
+          <div>
+            <h2 className="text-2xl font-heading font-semibold mb-6">Manage Reviews</h2>
+            {reviews.length === 0 ? (
+              <Card className="p-12 text-center">
+                <Star className="h-12 w-12 mx-auto mb-4 text-muted-foreground/50" />
+                <p className="text-muted-foreground">No reviews yet</p>
+              </Card>
+            ) : (
+              <div className="space-y-4">
+                {reviews.map((review, index) => (
+                  <Card key={review.review_id} className="p-6" data-testid={`review-${index}`}>
+                    <div className="flex items-start gap-4">
+                      <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <span className="text-primary font-semibold">
+                          {review.user_name.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <p className="font-semibold">{review.user_name}</p>
+                          <div className="flex gap-0.5">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <Star
+                                key={star}
+                                className={`h-4 w-4 ${
+                                  star <= review.rating
+                                    ? 'fill-yellow-400 text-yellow-400'
+                                    : 'text-gray-300'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                          <span className="text-sm text-muted-foreground">
+                            {new Date(review.created_at).toLocaleDateString()}
+                          </span>
+                        </div>
+                        <p className="text-foreground mb-3">{review.review_text}</p>
+                        
+                        {review.admin_reply && (
+                          <div className="bg-secondary/50 rounded-lg p-4 mb-3 border-l-4 border-primary">
+                            <p className="text-sm font-medium text-primary mb-1">Admin Reply:</p>
+                            <p className="text-sm text-foreground">{review.admin_reply}</p>
+                            {review.admin_reply_at && (
+                              <p className="text-xs text-muted-foreground mt-2">
+                                Replied on {new Date(review.admin_reply_at).toLocaleDateString()}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                        
+                        {replyingToReview === review.review_id ? (
+                          <div className="space-y-3">
+                            <Textarea
+                              placeholder="Write your reply..."
+                              value={replyText}
+                              onChange={(e) => setReplyText(e.target.value)}
+                              rows={3}
+                              data-testid={`reply-textarea-${index}`}
+                            />
+                            <div className="flex gap-2">
+                              <Button 
+                                size="sm" 
+                                onClick={() => handleReplyToReview(review.review_id)}
+                                data-testid={`send-reply-btn-${index}`}
+                              >
+                                Send Reply
+                              </Button>
+                              <Button 
+                                size="sm" 
+                                variant="outline" 
+                                onClick={() => {
+                                  setReplyingToReview(null);
+                                  setReplyText('');
+                                }}
+                              >
+                                Cancel
+                              </Button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex gap-2">
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => {
+                                setReplyingToReview(review.review_id);
+                                setReplyText(review.admin_reply || '');
+                              }}
+                              data-testid={`reply-btn-${index}`}
+                            >
+                              <MessageSquare className="h-4 w-4 mr-1" />
+                              {review.admin_reply ? 'Edit Reply' : 'Reply'}
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline"
+                              onClick={() => handleDeleteReview(review.review_id)}
+                              data-testid={`delete-review-btn-${index}`}
+                            >
+                              <Trash2 className="h-4 w-4 text-destructive" />
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
