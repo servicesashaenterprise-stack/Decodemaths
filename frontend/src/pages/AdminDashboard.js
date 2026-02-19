@@ -259,7 +259,7 @@ export default function AdminDashboard() {
       </nav>
 
       <div className="container mx-auto px-4 md:px-8 py-8">
-        <div className="bento-grid mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
           <Card className="stat-card p-6" data-testid="admin-stat-total">
             <p className="text-sm text-muted-foreground mb-1">Total Questions</p>
             <p className="text-3xl font-heading font-bold text-primary">{stats?.total || 0}</p>
@@ -270,17 +270,24 @@ export default function AdminDashboard() {
               {reports.filter(r => r.status === 'pending').length}
             </p>
           </Card>
+          <Card className="stat-card p-6" data-testid="admin-stat-reviews">
+            <p className="text-sm text-muted-foreground mb-1">Total Reviews</p>
+            <p className="text-3xl font-heading font-bold text-success">{reviewStats?.total || 0}</p>
+          </Card>
+          <Card className="stat-card p-6" data-testid="admin-stat-rating">
+            <p className="text-sm text-muted-foreground mb-1">Avg Rating</p>
+            <p className="text-3xl font-heading font-bold flex items-center gap-1">
+              {reviewStats?.average_rating || 0}
+              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+            </p>
+          </Card>
           <Card className="stat-card p-6" data-testid="admin-stat-classes">
             <p className="text-sm text-muted-foreground mb-1">Classes</p>
             <p className="text-3xl font-heading font-bold">{Object.keys(stats?.by_class || {}).length}</p>
           </Card>
-          <Card className="stat-card p-6" data-testid="admin-stat-types">
-            <p className="text-sm text-muted-foreground mb-1">Question Types</p>
-            <p className="text-3xl font-heading font-bold">{Object.keys(stats?.by_type || {}).length}</p>
-          </Card>
         </div>
 
-        <div className="flex gap-4 mb-6">
+        <div className="flex gap-4 mb-6 flex-wrap">
           <Button
             variant={activeTab === 'questions' ? 'default' : 'outline'}
             onClick={() => setActiveTab('questions')}
