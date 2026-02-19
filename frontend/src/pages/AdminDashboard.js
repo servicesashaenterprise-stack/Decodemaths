@@ -25,6 +25,8 @@ export default function AdminDashboard() {
   const [user, setUser] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [reports, setReports] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [reviewStats, setReviewStats] = useState(null);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('questions');
