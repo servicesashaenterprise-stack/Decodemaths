@@ -92,6 +92,9 @@
 - `PUT /api/admin/questions/:id` - Update question
 - `DELETE /api/admin/questions/:id` - Delete question
 - `GET /api/admin/reports` - View reports
+- `GET /api/admin/reviews` - View all reviews (admin)
+- `POST /api/admin/reviews/:id/reply` - Reply to review
+- `DELETE /api/admin/reviews/:id` - Delete review
 
 ### Reviews
 - `POST /api/reviews` - Submit review (auth required)
