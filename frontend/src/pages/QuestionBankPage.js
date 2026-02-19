@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Logo from '@/components/Logo';
+import ReviewPrompt from '@/components/ReviewPrompt';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
