@@ -23,11 +23,39 @@ export default function QuestionBankPage() {
   const [questions, setQuestions] = useState([]);
   const [chapters, setChapters] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showReviewPrompt, setShowReviewPrompt] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [questionsViewed, setQuestionsViewed] = useState(0);
   
   const [selectedClass, setSelectedClass] = useState(searchParams.get('class') || '');
   const [selectedChapter, setSelectedChapter] = useState(searchParams.get('chapter') || '');
   const [selectedType, setSelectedType] = useState(searchParams.get('type') || '');
   const [selectedMarks, setSelectedMarks] = useState(searchParams.get('marks') || '');
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      await axios.get(`${API}/auth/me`, { withCredentials: true });
+      setIsAuthenticated(true);
+    } catch (error) {
+      setIsAuthenticated(false);
+    }
+  };
+
+  useEffect(() => {
+    // Show review prompt after viewing 5 questions
+    if (isAuthenticated && questionsViewed >= 5) {
+      const hasReviewed = localStorage.getItem('hasReviewed');
+      const reviewPromptDismissed = sessionStorage.getItem('reviewPromptDismissed');
+      
+      if (!hasReviewed && !reviewPromptDismissed) {
+        setShowReviewPrompt(true);
+      }
+    }
+  }, [questionsViewed, isAuthenticated]);
 
   useEffect(() => {
     if (selectedClass) {
