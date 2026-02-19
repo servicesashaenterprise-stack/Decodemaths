@@ -4,7 +4,7 @@
 
 ### Option 1: Continue Using Emergent Hosting (Recommended for Quick Start)
 Your application is currently live on Emergent's infrastructure:
-- **URL**: https://math-question-bank-1.preview.emergentagent.com
+- **URL**: https://qbank-decode.preview.emergentagent.com
 - **Advantages**: Zero setup, automatic scaling, maintained infrastructure
 - **Note**: Check with Emergent support about production hosting plans
 

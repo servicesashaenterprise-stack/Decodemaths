@@ -5,7 +5,7 @@
   
   **Master Mathematics, One Question at a Time**
   
-  [![Live Demo](https://img.shields.io/badge/Demo-Live-success)](https://math-question-bank-1.preview.emergentagent.com)
+  [![Live Demo](https://img.shields.io/badge/Demo-Live-success)](https://qbank-decode.preview.emergentagent.com)
   [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)]()
 </div>
 
