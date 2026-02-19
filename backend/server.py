@@ -808,6 +808,58 @@ async def get_review_stats():
         "rating_distribution": {str(item["_id"]): item["count"] for item in ratings}
     }
 
+# ============= ADMIN REVIEW ROUTES =============
+
+@api_router.get("/admin/reviews")
+async def get_all_reviews_admin(session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
+    """Get all reviews for admin management"""
+    admin = await get_admin_user(session_token, authorization)
+    
+    reviews = await db.reviews.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    
+    for r in reviews:
+        if isinstance(r.get('created_at'), str):
+            r['created_at'] = datetime.fromisoformat(r['created_at'])
+        if isinstance(r.get('admin_reply_at'), str):
+            r['admin_reply_at'] = datetime.fromisoformat(r['admin_reply_at'])
+    
+    return [Review(**r) for r in reviews]
+
+@api_router.post("/admin/reviews/{review_id}/reply")
+async def reply_to_review(review_id: str, reply_data: ReviewReply, session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
+    """Reply to a student review (admin only)"""
+    admin = await get_admin_user(session_token, authorization)
+    
+    existing = await db.reviews.find_one({"review_id": review_id}, {"_id": 0})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Review not found")
+    
+    update_data = {
+        "admin_reply": reply_data.reply_text,
+        "admin_reply_at": datetime.now(timezone.utc).isoformat()
+    }
+    
+    await db.reviews.update_one({"review_id": review_id}, {"$set": update_data})
+    
+    updated = await db.reviews.find_one({"review_id": review_id}, {"_id": 0})
+    if isinstance(updated.get('created_at'), str):
+        updated['created_at'] = datetime.fromisoformat(updated['created_at'])
+    if isinstance(updated.get('admin_reply_at'), str):
+        updated['admin_reply_at'] = datetime.fromisoformat(updated['admin_reply_at'])
+    
+    return Review(**updated)
+
+@api_router.delete("/admin/reviews/{review_id}")
+async def delete_review(review_id: str, session_token: Optional[str] = Cookie(None), authorization: Optional[str] = None):
+    """Delete a review (admin only)"""
+    admin = await get_admin_user(session_token, authorization)
+    
+    result = await db.reviews.delete_one({"review_id": review_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Review not found")
+    
+    return {"message": "Review deleted successfully"}
+
 # Include the router in the main app
 app.include_router(api_router)
 
