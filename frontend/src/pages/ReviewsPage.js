@@ -260,6 +260,13 @@ export default function ReviewsPage() {
                       <p className="mt-3 text-muted-foreground leading-relaxed">
                         {review.review_text}
                       </p>
+                      
+                      {review.admin_reply && (
+                        <div className="mt-4 bg-primary/5 rounded-lg p-4 border-l-4 border-primary">
+                          <p className="text-sm font-medium text-primary mb-1">Response from DECODE MATHS:</p>
+                          <p className="text-sm text-foreground">{review.admin_reply}</p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Card>
