@@ -232,6 +232,8 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <TestimonialsSection />
+
       <section className="container mx-auto px-4 md:px-8 py-16 text-center">
         <h3 className="text-3xl md:text-4xl font-heading font-bold mb-6">
           Ready to Excel in Mathematics?
