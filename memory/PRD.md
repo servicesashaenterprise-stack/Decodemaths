@@ -71,6 +71,7 @@
 | Deployment Files | ✅ | Dec 2025 |
 | Student Review Feature | ✅ | Feb 2026 |
 | Reviews Display (Landing + Page) | ✅ | Feb 2026 |
+| Admin Review Management | ✅ | Feb 2026 |
 
 ## API Endpoints
 
