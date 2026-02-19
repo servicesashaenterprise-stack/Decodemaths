@@ -132,6 +132,19 @@ class ReportCreate(BaseModel):
     question_id: str
     issue_description: str
 
+class Review(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    review_id: str
+    user_id: str
+    user_name: str
+    rating: int
+    review_text: str
+    created_at: datetime
+
+class ReviewCreate(BaseModel):
+    rating: int
+    review_text: str
+
 class PracticeTest(BaseModel):
     model_config = ConfigDict(extra="ignore")
     test_id: str
