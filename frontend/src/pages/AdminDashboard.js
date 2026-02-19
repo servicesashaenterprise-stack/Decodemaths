@@ -32,6 +32,8 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('questions');
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [editingQuestion, setEditingQuestion] = useState(null);
+  const [replyingToReview, setReplyingToReview] = useState(null);
+  const [replyText, setReplyText] = useState('');
 
   const [formData, setFormData] = useState({
     question_text: '',
