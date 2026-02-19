@@ -302,6 +302,13 @@ export default function AdminDashboard() {
           >
             Reports ({reports.length})
           </Button>
+          <Button
+            variant={activeTab === 'reviews' ? 'default' : 'outline'}
+            onClick={() => setActiveTab('reviews')}
+            data-testid="tab-reviews-btn"
+          >
+            Reviews ({reviews.length})
+          </Button>
         </div>
 
         {activeTab === 'questions' && (
