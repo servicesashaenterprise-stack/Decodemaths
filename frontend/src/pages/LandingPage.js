@@ -272,6 +272,9 @@ export default function LandingPage() {
                 <Link to="/contact" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
                   Contact Us
                 </Link>
+                <Link to="/reviews" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Student Reviews
+                </Link>
               </div>
             </div>
             <div>
