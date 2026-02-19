@@ -102,9 +102,15 @@ export const TestimonialsSection = () => {
                   {renderStars(review.rating)}
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed line-clamp-4">
+              <p className="text-muted-foreground leading-relaxed line-clamp-3">
                 "{review.review_text}"
               </p>
+              {review.admin_reply && (
+                <div className="mt-3 pt-3 border-t border-border">
+                  <p className="text-xs text-primary font-medium mb-1">DECODE MATHS replied:</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{review.admin_reply}</p>
+                </div>
+              )}
             </Card>
           ))}
         </div>
